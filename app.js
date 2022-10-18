@@ -31,11 +31,12 @@ const locationModel = mongoose.model('location', location);
 
 
 app.get('/',(req,res)=>{
-    res.send('<div style="text-align:center;"><h1>Location Api Project</h1><h3>By Pankaj Phour</h3></div>')
+    res.send('<div style="display:flex;justify-content:center;align-items:center;width:100%;height:100%;background-size:cover;background-repeat:no-repeat;flex-direction:column;background:url(https://www.myfreewalls.com/public/uploads/preview/dark-world-map-hd-wallpaper-background-11653063897b8qurtwcxt.jpg);padding:0px;margin:0px;overflow:hidden;color:white;"><h1>Location Api Project</h1><h3>By Pankaj Phour</h3></div>')
 })
 
-app.get('/allUsers', async (req,res)=>{
+app.get('/allUsers',  async (req,res)=>{
     const response = await locationModel.find().lean();
+    console.log(response);
     res.status(200).send({
         error:false,
         code:200,
