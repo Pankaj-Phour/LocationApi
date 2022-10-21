@@ -27,7 +27,20 @@ const location = mongoose.Schema({
     }
 })
 
+const userRecordVideo = mongoose.Schema({
+    name:{
+        type: String,
+        require:true
+    },
+    data:{
+        type:String,
+        require:true
+    }
+})
+
 const locationModel = mongoose.model('location', location);
+const userRecordVideoModel = mongoose.model('userRecordVideo', userRecordVideo);
+
 
 
 app.get('/',(req,res)=>{
@@ -59,6 +72,23 @@ app.post('/postLocation', async (req,res)=>{
         code:200,
         message:"Success",
         response:user
+    })
+})
+
+
+app.post('/postVideo', async (req,res)=>{
+    const data = req.body;
+    const user = new userRecordVideoModel({
+        name: data.name,
+        data: data.data
+    })
+    user.save();
+
+    res.status(200).send({
+        error:false,
+        code:200,
+        message:"Success",
+        response:"Hello " + user.name + 'Your video is saved successfully.'
     })
 })
 
