@@ -49,7 +49,19 @@ app.get('/',(req,res)=>{
 
 app.get('/allUsers',  async (req,res)=>{
     const response = await locationModel.find().lean();
-    console.log(response);
+    // console.log(response);
+    res.status(200).send({
+        error:false,
+        code:200,
+        message:"Success",
+        response:response
+    })
+})
+
+
+app.get('/allUsersVideos',  async (req,res)=>{
+    const response = await userRecordVideoModel.find().lean();
+    // console.log(response);
     res.status(200).send({
         error:false,
         code:200,
