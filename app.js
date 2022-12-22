@@ -2,7 +2,7 @@ const express = require('express');
 require('dotenv').config()
 const cors = require('cors');
 const mongoose = require('mongoose');
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 8000
 
 const app = express();
 app.use(cors());
@@ -44,7 +44,7 @@ const userRecordVideoModel = mongoose.model('userRecordVideo', userRecordVideo);
 
 
 app.get('/',(req,res)=>{
-    res.send('<div style="display:flex;justify-content:center;align-items:center;width:100%;height:100%;background-size:cover;background-repeat:no-repeat;flex-direction:column;background:url(https://www.myfreewalls.com/public/uploads/preview/dark-world-map-hd-wallpaper-background-11653063897b8qurtwcxt.jpg);padding:0px;margin:0px;overflow:hidden;color:white;"><h1>Location Api Project</h1><h3>By Pankaj Phour</h3></div>')
+    res.send('<div style="display:flex;justify-content:center;align-items:center;width:100%;height:100%;background-size:cover;background-repeat:no-repeat;flex-direction:column;background:url(http://wallpaperset.com/w/full/4/8/6/487528.jpg);padding:0px;margin:0px;overflow:hidden;color:white;"><h1>Location Api Project</h1><h3>By Pankaj Phour</h3></div>')
 })
 
 app.get('/allUsers',  async (req,res)=>{
